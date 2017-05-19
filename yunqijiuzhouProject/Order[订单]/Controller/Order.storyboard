@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ry8-dq-WBD">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--订单-->
+        <scene sceneID="q0r-Pi-MBm">
+            <objects>
+                <viewController id="Ley-55-nKG" customClass="OrderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BPe-Ab-ssc"/>
+                        <viewControllerLayoutGuide type="bottom" id="cKO-Xa-yjt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="F6s-4F-GIu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="订单" id="NHE-JE-5Fp">
+                        <barButtonItem key="rightBarButtonItem" title="支付" id="UV0-TQ-Z3p">
+                            <connections>
+                                <action selector="pay:" destination="Ley-55-nKG" id="EHg-ze-Cda"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rb5-uE-33o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="863" y="51"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="N0B-bz-aXU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ry8-dq-WBD" customClass="MMNavigationController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zUq-dX-muh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ley-55-nKG" kind="relationship" relationship="rootViewController" id="eaP-f7-YLv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fbf-yV-U9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.80000000000000004" y="50.824587706146929"/>
+        </scene>
+    </scenes>
+</document>

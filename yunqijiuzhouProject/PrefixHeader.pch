@@ -1,0 +1,74 @@
+//
+//  PrefixHeader.pch
+//  yunqijiuzhouProject
+//
+//  Created by 李龙 on 17/4/13.
+//  Copyright © 2017年 yunqijiuzhou. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#define RandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
+
+//屏幕宽高
+#define ScreenW [UIScreen mainScreen].bounds.size.width
+#define ScreenH [UIScreen mainScreen].bounds.size.height
+
+//文本字体
+#define TextFont14 [UIFont systemFontOfSize:14]
+
+//高德地图key
+#define AMapKey @"b50077475d86a2bdb19fe01ef0cd4cb5"
+//极光推送key
+#define JPushAppKey @"cbea1b3e55b78d5b96c23c05"
+//@"2a205540ae395d06aaaa66a5"
+//存极光token
+#define SaveJPushToken [[NSUserDefaults standardUserDefaults] setObject:[JPUSHService registrationID] forKey:@"JPushRegistrationID"];
+//取极光token
+#define GetJPushToken [[NSUserDefaults standardUserDefaults] objectForKey:@"JPushRegistrationID"];
+
+
+//取头像
+#define GetIcon [[NSUserDefaults standardUserDefaults] objectForKey:@"userPhoto"];
+
+//取uuid
+#define GetUuid [UserInfo account].uuid
+
+//选择城市通知
+#define CityNotification @"CityNotification"
+//选择城市通知
+#define OilTypeNotification @"OilTypeNotification"
+//选择地址通知
+#define AddressNotification @"AddressNotification"
+
+
+//分类
+#import "UIColor+Extension.h"
+#import "UIView+topSalesFrame.h"
+#import "UIImage+Extension.h"
+#import "NSString+Extension.h"
+#import "NSString+Base64.h"
+
+
+//第三方
+#import "Masonry.h"
+#import "KeyboardManager.h"
+#import "JCAlertController.h"
+#import "SVProgressHUD.h"
+#import "LLGHUD.h"
+#import "UIImageView+WebCache.h"
+#import "WKWebViewJavascriptBridge.h"
+#import <WebKit/WebKit.h>
+#import "MJRefresh.h"
+
+//网络请求
+//#import "NetPort133.h"
+//#import "NetPort.h"
+#import "NetPortWW.h"
+//#import "NetPort134.h"
+#import "XSJNetworkTool.h"
+
+#define ServicePhone @"0411-39276399"
+
+#endif /* PrefixHeader_pch */
