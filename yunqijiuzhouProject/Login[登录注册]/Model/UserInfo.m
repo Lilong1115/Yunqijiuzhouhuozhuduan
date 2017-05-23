@@ -94,7 +94,6 @@
 
 
 
-
 //保存账号
 + (void)saveAccount:(XBAccount *)account
 {
@@ -121,6 +120,7 @@
 //销毁账户
 +(void)logoutAccount
 {
+    [SVProgressHUD showWithStatus:@"正在退出..."];
     NSFileManager *fileManeger=[NSFileManager defaultManager];
     if ([fileManeger isDeletableFileAtPath:BABarAccountFile]) {
         [fileManeger removeItemAtPath:BABarAccountFile error:nil];

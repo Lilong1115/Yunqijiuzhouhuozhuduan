@@ -45,6 +45,7 @@
 - (IBAction)clickLoginButton:(UIButton *)sender {
   
     [self.view endEditing:YES];
+    [SVProgressHUD showWithStatus:@"正在登陆..."];
     
     if (self.username.text.length == 0 && self.password.text.length == 0) {
         

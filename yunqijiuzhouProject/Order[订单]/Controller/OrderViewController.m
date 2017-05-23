@@ -251,15 +251,35 @@
     //再来一单
     [_bridge registerHandler:@"againOrder" handler:^(id data, WVJBResponseCallback responseCallback) {
         
-        //NSDictionary *dict = (NSDictionary *)data;
+        NSDictionary *dict = (NSDictionary *)data;
+//
+        NSLog(@"-------%@--------", dict);
         
-        //NSLog(@"%@", dict);
+//        fhdhwzl = 100;
+//        fhdkspc = 100;
+//        fhdxhcsxx = "\U5317\U4eac\U5e02\U4e1c\U57ce\U533a\U5d07\U6587\U95e8\U5916\U8857\U9053\U73ca\U745a\U80e1\U540c\U5317\U4eac\U5e02\U7b2c\U4e5d\U5341\U516d\U4e2d\U5b66(\U5357\U6821\U533a)";
+//        fhdxhzb = "116.4164351343108,39.89481090017846";
+//        fhdydj = "1000.0";
+//        fhdyfdj = 10;
+//        fhdyskdl = "0.1";
+//        fhdzhcsxx = "\U5317\U4eac\U5e02\U6d77\U6dc0\U533a\U4e1c\U5347\U9547\U6f47\U6e58\U66fe\U5e9c\U517b\U751f\U56ed(\U6e05\U6cb3\U5e97)";
+//        fhdzhzb = "116.3644930880121,40.04016539480145";
+//        hwlxmc = "\U6c7d\U6cb9";
+//        jscs = "\U6c88\U9633\U5e02";
+//        kscs = "\U77f3\U5bb6\U5e84\U5e02";
+//        sfhs = 0;
+//        xhlxrmc = "";
+//        xhlxrsjh = "";
+//        zhlxrmc = "\U5f20\U4e09";
+//        zhlxrsjh = 1222222222222222222222222;
+//        zzdz = "\U5317\U4eac\U5e02\U5927\U5174\U533a\U65e7\U5bab\U9547\U5f00\U53d1\U8def22\U53f7";
+//        zzjwd = "116.4058803865401,39.78277866919719";
 
         //我要发货
         DeliveryTableViewController *toDeliveryVC = [[DeliveryTableViewController alloc]init];
         
         toDeliveryVC.navigationItem.title = @"我要发货";
-        //toDeliveryVC.dataDict = dict;
+        toDeliveryVC.dataDict = dict;
         [self.navigationController pushViewController:toDeliveryVC animated:YES];
 
     }];

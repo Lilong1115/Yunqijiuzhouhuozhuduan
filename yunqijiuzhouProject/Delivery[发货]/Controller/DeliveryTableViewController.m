@@ -118,6 +118,18 @@ static NSString *kThirdTableViewCellID = @"kThirdTableViewCellID";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectedOilType:) name:OilTypeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectedAddress:) name:AddressNotification object:nil];
     
+    
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+
+    [super viewDidAppear:animated];
+    
+    if (self.dataDict.count > 0) {
+        [self setDataDict];
+    }
+    
 }
 
 
@@ -590,13 +602,25 @@ static NSString *kThirdTableViewCellID = @"kThirdTableViewCellID";
     return _contentDict;
 }
 
-/*
-//设置数据
-- (void)setDataDict:(NSDictionary *)dataDict {
-    _dataDict = dataDict;
+////设置数据
+- (void)setDataDict {
+
+    DeliveryModel *model = [DeliveryModel deliveryModelWithdict:self.dataDict];
     
-    DeliveryModel *model = [DeliveryModel deliveryModelWithdict:dataDict];
-    self.deliveryModel = model;
+    self.startModel = [cityModel cityModelWithDict:@{
+                                                     @"csmc": model.kscs,
+                                                     @"tag": @"100"
+                                                     }];
+    self.endModel = [cityModel cityModelWithDict:@{
+                                                     @"csmc": model.jscs,
+                                                     @"tag": @"200"
+                                                     }];
+    
+    [self.tableView reloadData];
+    
+    //self.deliveryModel = model;
+    
 }
-*/
+
+
 @end
