@@ -9,7 +9,7 @@
 #ifndef NetPortWW_h
 #define NetPortWW_h
 
-#define Base_URL @"http://www.yun9zhou.com/"
+#define Base_URL @"http://192.168.100.137:8080/antu/"
 
 //222.35.27.155:8888
 //192.168.100.201:8080
@@ -21,7 +21,7 @@
 
 
 //头像路径 -- http://222.35.27.155:8888 图片基础url
-#define PhotoBase_URL @"http://www.yun9zhou.com"
+#define PhotoBase_URL @"http://192.168.100.137:8080"
 
 //首页
 #define Home_URL [NSString stringWithFormat:@"%@MovewebhomeCon.con/index", Base_URL]
@@ -33,7 +33,7 @@
 #define OilType_URL [NSString stringWithFormat:@"%@RrgisterCon.con/gasoline", Base_URL]
 //@"http://192.168.100.136:8080/antu/XgoodsCon.con/hwlx"
 //登录
-#define Login_URL [NSString stringWithFormat:@"%@login.con/login", Base_URL]
+#define Login_URL [NSString stringWithFormat:@"%@IOSlogin.con/login", Base_URL]
 //@"http://192.168.100.136:8080/antu/login.con/login"
 
 //修改照片
@@ -64,6 +64,8 @@
 //已发布
 #define YBJOrderManagement_URL [NSString stringWithFormat:@"%@MovewebindentCon.con/NOindent", Base_URL]
 //@"http://192.168.100.136:8080/antu/MovewebindentCon.con/QuotedIndent"
+//再来一单
+#define AgainOrder_URL [NSString stringWithFormat:@"%@MovewebindentCon.con/Shujudata", Base_URL]
 //已签约
 #define YQYOrderManagement_URL [NSString stringWithFormat:@"%@MovewebindentCon.con/YESindent", Base_URL]
 //@"http://192.168.100.136:8080/antu/MovewebindentCon.con/SignedIndent"

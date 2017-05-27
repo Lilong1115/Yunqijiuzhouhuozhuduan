@@ -87,10 +87,6 @@ static NSString *kThirdTableViewCellID = @"kThirdTableViewCellID";
     
     self.tableView.bounces = NO;
     
-    //注册
-    //[self.tableView registerClass:[FirstTableViewCell class] forCellReuseIdentifier:kFirstTableViewCellID];
-    //[self.tableView registerClass:[SecondTableViewCell class] forCellReuseIdentifier:kSecondTableViewCellID];
-    //[self.tableView registerClass:[ThirdTableViewCell class] forCellReuseIdentifier:kThirdTableViewCellID];
     
     UIView *footer = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenW, 80)];
     
@@ -118,6 +114,9 @@ static NSString *kThirdTableViewCellID = @"kThirdTableViewCellID";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectedOilType:) name:OilTypeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectedAddress:) name:AddressNotification object:nil];
     
+    if (self.model != nil) {
+        [self setDataModel];
+    }
     
     
 }
@@ -125,10 +124,6 @@ static NSString *kThirdTableViewCellID = @"kThirdTableViewCellID";
 - (void)viewDidAppear:(BOOL)animated {
 
     [super viewDidAppear:animated];
-    
-    if (self.dataDict.count > 0) {
-        [self setDataDict];
-    }
     
 }
 
@@ -217,6 +212,8 @@ static NSString *kThirdTableViewCellID = @"kThirdTableViewCellID";
         self.deliveryModel.zhlxrsjh = [self getStr:@"10"];
         self.deliveryModel.sfhs = self.tick;
         self.deliveryModel.fhdhwlx = [NSString stringWithFormat:@"%ld", self.oilModel.hwlxbh];
+        
+        NSLog(@"%@", self.deliveryModel.fhdkscs);
         
         [self.deliveryModel submitDataWithSuccessBlock:^(id result) {
             
@@ -602,23 +599,87 @@ static NSString *kThirdTableViewCellID = @"kThirdTableViewCellID";
     return _contentDict;
 }
 
-////设置数据
-- (void)setDataDict {
+//设置data
+- (void)setThirdTableViewCellDataWithRow:(NSInteger)row str:(NSString *)str {
 
-    DeliveryModel *model = [DeliveryModel deliveryModelWithdict:self.dataDict];
+    if (str.length == 0) {
+        str = @"";
+    }
+    
+    ThirdTableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]];
+    [self.contentDict setValue:str forKey:[NSString stringWithFormat:@"%ld", row]];
+    cell.data = str;
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:NO];
+    
+}
+    
+- (void)setSecondTableViewCellDataWithRow:(NSInteger)row str:(NSString *) str {
+    
+    SecondTableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]];
+    cell.address = str;
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:NO];
+    
+}
+    
+////设置数据
+- (void)setDataModel {
+
     
     self.startModel = [cityModel cityModelWithDict:@{
-                                                     @"csmc": model.kscs,
-                                                     @"tag": @"100"
+                                                     @"csmc": self.model.kscs,
+                                                     @"tag": @"100",
+                                                     @"csbh": self.model.fhdkscs
                                                      }];
     self.endModel = [cityModel cityModelWithDict:@{
-                                                     @"csmc": model.jscs,
-                                                     @"tag": @"200"
+                                                     @"csmc": self.model.jscs,
+                                                     @"tag": @"200",
+                                                     @"csbh": self.model.fhdjscs
                                                      }];
     
-    [self.tableView reloadData];
+    if (self.model.hwlxmc.length != 0) {
+        self.oilModel = [OilModel oilModelWithDict:@{
+                                                     @"hwlxmc": self.model.hwlxmc,
+                                                     //货物编号
+                                                     @"hwlxbh": self.model.fhdhwlx
+                                                     }];
+    }
     
-    //self.deliveryModel = model;
+    
+    
+    [self setThirdTableViewCellDataWithRow:2 str:[NSString stringWithFormat:@"%@", self.model.fhdhwzl]];
+    [self setThirdTableViewCellDataWithRow:3 str:[NSString stringWithFormat:@"%@", self.model.fhdydj]];
+    [self setThirdTableViewCellDataWithRow:4 str:[NSString stringWithFormat:@"%@", self.model.fhdyfdj]];
+    [self setThirdTableViewCellDataWithRow:5 str:[NSString stringWithFormat:@"%@", self.model.fhdyskdl]];
+    [self setThirdTableViewCellDataWithRow:6 str:[NSString stringWithFormat:@"%@", self.model.fhdkspc]];
+    [self setThirdTableViewCellDataWithRow:9 str:[NSString stringWithFormat:@"%@", self.model.zhlxrmc]];
+    [self setThirdTableViewCellDataWithRow:10 str:[NSString stringWithFormat:@"%@", self.model.zhlxrsjh]];
+    [self setThirdTableViewCellDataWithRow:12 str:[NSString stringWithFormat:@"%@", self.model.xhlxrmc]];
+    [self setThirdTableViewCellDataWithRow:13 str:[NSString stringWithFormat:@"%@", self.model.xhlxrsjh]];
+    [self setThirdTableViewCellDataWithRow:15 str:[NSString stringWithFormat:@"%@", self.model.fhdbz]];
+    
+    self.loadAddress = self.model.fhdzhcsxx;
+    self.unloadAddress = self.model.fhdxhcsxx;
+    self.transitAddress = self.model.zzdz;
+    
+    NSArray *loadArray = [self.model.fhdzhzb componentsSeparatedByString:@","];
+    self.loadLatitude = loadArray.lastObject;
+    self.loadLongitude = loadArray.firstObject;
+    
+    NSArray *unloadArray = [self.model.fhdxhzb componentsSeparatedByString:@","];
+    self.unloadLatitude = unloadArray.lastObject;
+    self.unloadLongitude = unloadArray.firstObject;
+    
+    NSArray *transitArray = [self.model.zzjwd componentsSeparatedByString:@","];
+    self.transitLatitude = transitArray.lastObject;
+    self.transitLongitude = transitArray.firstObject;
+    
+    [self setSecondTableViewCellDataWithRow:7 str:self.loadAddress];
+    [self setSecondTableViewCellDataWithRow:11 str:self.unloadAddress];
+    [self setSecondTableViewCellDataWithRow:14 str:self.transitAddress];
+    
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    
+    [self.tableView reloadData];
     
 }
 

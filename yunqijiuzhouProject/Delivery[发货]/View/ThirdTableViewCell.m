@@ -149,6 +149,11 @@
     self.contentText.text = nil;
 }
 
+- (void)setData:(NSString *)data {
+
+    _data = data;
+    self.contentText.text = data;
+}
 
 
 @end

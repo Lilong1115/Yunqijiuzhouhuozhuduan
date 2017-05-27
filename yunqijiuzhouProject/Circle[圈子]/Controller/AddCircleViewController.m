@@ -40,6 +40,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.bridge setWebViewDelegate:nil];
+    [SVProgressHUD dismiss];
 }
 
 - (void)dealloc
@@ -71,7 +72,11 @@
         
     }];
     
-    NSLog(@"123");
+    //加载
+    [_bridge registerHandler:@"Circlestart" handler:^(id data, WVJBResponseCallback responseCallback) {
+        
+        [SVProgressHUD showWithStatus:@"正在发布..."];
+    }];
     
     [self loadExamplePage:self.wkWebView];
 }

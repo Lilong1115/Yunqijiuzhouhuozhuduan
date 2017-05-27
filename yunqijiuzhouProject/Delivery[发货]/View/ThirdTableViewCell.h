@@ -22,5 +22,8 @@
 
 //消除数据
 @property (nonatomic, copy) NSString *dismissData;
+    
+//外部设置数据
+@property (nonatomic, copy) NSString *data;
 
 @end

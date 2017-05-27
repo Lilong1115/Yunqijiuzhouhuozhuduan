@@ -15,6 +15,8 @@
 @property (nonatomic, copy) NSString *fhdbz;
 /* 货物类型 1 2 3 4 */
 @property (nonatomic, copy) NSString *fhdhwlx;
+/* 货物类型名称 */
+@property (nonatomic, copy) NSString *hwlxmc;
 /* 货物重量 0 or float 必选 */
 @property (nonatomic, copy) NSString *fhdhwzl;
 /* 目的地城市id 必选 */

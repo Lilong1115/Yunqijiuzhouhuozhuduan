@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class DeliveryModel;
+
 @interface DeliveryTableViewController : UITableViewController
 
 //网络数据
-@property (nonatomic, copy) NSDictionary *dataDict;
+@property (nonatomic, strong) DeliveryModel *model;
 
 @end
