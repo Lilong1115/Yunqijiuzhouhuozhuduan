@@ -212,8 +212,8 @@ static NSString *kThirdTableViewCellID = @"kThirdTableViewCellID";
         self.deliveryModel.zhlxrsjh = [self getStr:@"10"];
         self.deliveryModel.sfhs = self.tick;
         self.deliveryModel.fhdhwlx = [NSString stringWithFormat:@"%ld", self.oilModel.hwlxbh];
-        
-        NSLog(@"%@", self.deliveryModel.fhdkscs);
+
+        [SVProgressHUD show];
         
         [self.deliveryModel submitDataWithSuccessBlock:^(id result) {
             
@@ -261,7 +261,7 @@ static NSString *kThirdTableViewCellID = @"kThirdTableViewCellID";
                 
                 
             } else {
-                [LLGHUD showErrorWithStatus:@"提交失败"];
+                [LLGHUD showErrorWithStatus:result[@"msg"]];
             }
             
         } failBlock:^(NSError *error) {

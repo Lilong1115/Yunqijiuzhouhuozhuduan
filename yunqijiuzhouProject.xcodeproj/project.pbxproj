@@ -25,6 +25,7 @@
 		5A2A20FD1EC405E20079B1AB /* PaymentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A20FC1EC405E20079B1AB /* PaymentListViewController.m */; };
 		5A2A21001EC411EA0079B1AB /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A20FF1EC411EA0079B1AB /* PaymentViewController.m */; };
 		5A2A21031EC4392A0079B1AB /* PaymentmoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A21021EC4392A0079B1AB /* PaymentmoneyViewController.m */; };
+		5AEBC74C1F04D39900F93818 /* ChangePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEBC74B1F04D39900F93818 /* ChangePasswordController.m */; };
 		FD407CFF1E9F105400A63A39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD407CFE1E9F105400A63A39 /* main.m */; };
 		FD407D021E9F105400A63A39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD407D011E9F105400A63A39 /* AppDelegate.m */; };
 		FD407D0A1E9F105400A63A39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD407D091E9F105400A63A39 /* Assets.xcassets */; };
@@ -238,6 +239,8 @@
 		5A2A20FF1EC411EA0079B1AB /* PaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentViewController.m; sourceTree = "<group>"; };
 		5A2A21011EC4392A0079B1AB /* PaymentmoneyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentmoneyViewController.h; sourceTree = "<group>"; };
 		5A2A21021EC4392A0079B1AB /* PaymentmoneyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentmoneyViewController.m; sourceTree = "<group>"; };
+		5AEBC74A1F04D39900F93818 /* ChangePasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordController.h; sourceTree = "<group>"; };
+		5AEBC74B1F04D39900F93818 /* ChangePasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordController.m; sourceTree = "<group>"; };
 		FD407CFA1E9F105400A63A39 /* yunqijiuzhouProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yunqijiuzhouProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD407CFE1E9F105400A63A39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FD407D001E9F105400A63A39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1410,6 +1413,8 @@
 				FDF77D531EB0722700EA80EB /* LoginViewController.m */,
 				5A2A20B01EBC119A0079B1AB /* RegisterViewController.h */,
 				5A2A20B11EBC119A0079B1AB /* RegisterViewController.m */,
+				5AEBC74A1F04D39900F93818 /* ChangePasswordController.h */,
+				5AEBC74B1F04D39900F93818 /* ChangePasswordController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1714,6 +1719,7 @@
 				5A2A21031EC4392A0079B1AB /* PaymentmoneyViewController.m in Sources */,
 				FD407F0E1EA1D08300A63A39 /* UIViewController+JCPresentQueue.m in Sources */,
 				FD407EDD1EA1CCC500A63A39 /* IQToolbar.m in Sources */,
+				5AEBC74C1F04D39900F93818 /* ChangePasswordController.m in Sources */,
 				5A2A20D71EC174230079B1AB /* AccountTypeModel.m in Sources */,
 				FD407F3B1EA5E1C100A63A39 /* DeliveryModel.m in Sources */,
 				FD407ED91EA1CCC500A63A39 /* IQKeyboardReturnKeyHandler.m in Sources */,
@@ -1991,7 +1997,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = yunqijiuzhouProject/yunqijiuzhouProject.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: XIAOCHUN YU (Q7WTUP2ETT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = Q7WTUP2ETT;
 				ENABLE_BITCODE = NO;

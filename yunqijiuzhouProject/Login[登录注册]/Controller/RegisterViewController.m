@@ -65,24 +65,18 @@
         
         NSString *str = (NSString *)data;
         
-        NSLog(@"%@", str);
-        
-        //成功
-        if ([str isEqualToString:@"cg"]) {
-            
-            [LLGHUD showSuccessWithStatus:@"提交注册成功"];
-            
-            [self.navigationController popViewControllerAnimated:YES];
-            //失败
-        } else if ([str isEqualToString:@"sb"]) {
-            [LLGHUD showErrorWithStatus:@"提交注册失败"];
-            //手机号格式不正确
-        } else if ([str isEqualToString:@"sjhgsbzq "]) {
-            [LLGHUD showErrorWithStatus:@"手机号格式不正确"];
-            //手机号已存在
-        } else if ([str isEqualToString:@"sjhcz"]) {
-            
-            [LLGHUD showErrorWithStatus:@"手机号已存在"];
+        if ([str isEqualToString:@"true"]) {
+            [SVProgressHUD dismissWithCompletion:^{
+                [LLGHUD showSuccessWithStatus:@"注册成功"];
+            }];
+        } else if ([str isEqualToString:@"false"]) {
+            [SVProgressHUD dismissWithCompletion:^{
+                [LLGHUD showErrorWithStatus:@"注册失败"];
+            }];
+        } else {
+            [SVProgressHUD dismissWithCompletion:^{
+                [LLGHUD showErrorWithStatus:str];
+            }];
         }
     }];
     

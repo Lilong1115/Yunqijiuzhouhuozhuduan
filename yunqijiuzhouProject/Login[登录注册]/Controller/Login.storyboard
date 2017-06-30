@@ -66,6 +66,9 @@
                                 <state key="normal" title="忘记密码?">
                                     <color key="titleColor" red="0.65098039220000004" green="0.65098039220000004" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="forgotPassword:" destination="IQn-XA-FHn" eventType="touchUpInside" id="WJA-nM-h5A"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJw-bi-nQD">
                                 <rect key="frame" x="297" y="237" width="62" height="30"/>

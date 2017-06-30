@@ -11,6 +11,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "ChangePasswordController.h"
 
 @interface PersonalDataTableViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 //头像
@@ -81,11 +82,19 @@
             [self callActionSheetFunc];
             break;
         case 4:
-            
+            [self changePassword];
             break;
         default:
             break;
     }
+}
+
+
+- (void)changePassword {
+    
+    ChangePasswordController *vc = [[ChangePasswordController alloc]init];
+    vc.phone = [UserInfo account].phone;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

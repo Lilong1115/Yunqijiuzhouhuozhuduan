@@ -119,6 +119,35 @@
     } else {
         self.contentText.placeholder = @"";
     }
+    
+    if ([menuModel.title isEqualToString:@"预付定金(%)"]) {
+        self.contentText.tag = 1;
+    }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    if (textField.keyboardType == UIKeyboardTypeDecimalPad) {
+        
+        if ([string isEqualToString:@"0"] && [textField.text isEqualToString:@"0"]) {
+            return NO;
+        }
+        
+        if ([string floatValue] > 0 && [textField.text isEqualToString:@"0"]) {
+            return NO;
+        }
+        
+        
+        if (textField.tag == 1) {
+            if ([[NSString stringWithFormat:@"%@%@", textField.text, string] floatValue] > 100) {
+                return NO;
+            }
+        }
+        
+        
+    }
+    
+    return YES;
 }
 
 //含不含税

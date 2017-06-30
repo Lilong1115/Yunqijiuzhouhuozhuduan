@@ -130,6 +130,13 @@
     }    
 }
 
++ (void)logout {
+    
+    NSFileManager *fileManeger=[NSFileManager defaultManager];
+    if ([fileManeger isDeletableFileAtPath:BABarAccountFile]) {
+        [fileManeger removeItemAtPath:BABarAccountFile error:nil];
+    }
+}
 
 
 @end

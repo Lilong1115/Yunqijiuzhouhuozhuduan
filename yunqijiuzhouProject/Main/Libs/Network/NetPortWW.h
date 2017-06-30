@@ -9,19 +9,25 @@
 #ifndef NetPortWW_h
 #define NetPortWW_h
 
-#define Base_URL @"http://192.168.100.137:8080/antu/"
+#define Base_URL @"http://192.168.100.141:8080/antu/"
 
 //222.35.27.155:8888
-//192.168.100.201:8080
+//192.168.100.141:8080
 //192.168.100.137:8080
+//192.168.100.134:8888
 
 //47.93.46.18:8080
 
 //www.yun9zhou.com
 
 
+//获取验证码
+#define GetCode_URL [NSString stringWithFormat:@"%@androidModifyMm.con/getRandom", Base_URL]
+//密码确认修改
+#define ChangePassword_URL [NSString stringWithFormat:@"%@androidModifyMm.con/checkPassword", Base_URL]
+
 //头像路径 -- http://222.35.27.155:8888 图片基础url
-#define PhotoBase_URL @"http://192.168.100.137:8080"
+#define PhotoBase_URL @"http://www.yun9zhou.com"
 
 //首页
 #define Home_URL [NSString stringWithFormat:@"%@MovewebhomeCon.con/index", Base_URL]
