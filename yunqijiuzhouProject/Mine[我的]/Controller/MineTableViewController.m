@@ -55,6 +55,15 @@
     self.iconView.contentMode = UIViewContentModeScaleToFill;
     [self.iconView addGestureRecognizer:tap];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logout:) name:@"logout" object:nil];
+    
+}
+
+- (void)logout:(NSNotification *)noti {
+
+    self.iconView.image = [UIImage imageNamed:@"avatar_default"];
+    self.userName.text = @"请先登录";
+    
 }
 
 //头像手势
@@ -124,6 +133,12 @@
     
         [LLGHUD showInfoWithStatus:@"正在开发中..."];
     }
+}
+
+
+- (void)dealloc {
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 

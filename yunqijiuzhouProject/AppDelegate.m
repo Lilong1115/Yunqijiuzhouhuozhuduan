@@ -60,6 +60,8 @@
     NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
     [defaultCenter addObserver:self selector:@selector(networkDidReceiveMessage:) name:kJPFNetworkDidReceiveMessageNotification object:nil];
     
+
+    
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
     MMTabBarController *homeVC = [[MMTabBarController alloc]init];
@@ -104,6 +106,10 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         NSLog(@"%@", content);
         [LLGHUD showErrorWithStatus:content];
         [UserInfo logout];
+
+        //发送通知,退出登录
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"logout" object:nil];
+        
 //        self.window.rootViewController
     }
     
@@ -152,6 +158,8 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     // iOS 10 以下 Required
     [JPUSHService handleRemoteNotification:userInfo];
 }
+
+
 
 //iOS 7 Remote Notification
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:  (NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {

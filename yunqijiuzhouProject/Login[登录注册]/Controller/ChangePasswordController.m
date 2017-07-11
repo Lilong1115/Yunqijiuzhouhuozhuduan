@@ -9,6 +9,7 @@
 #import "ChangePasswordController.h"
 #import "UserInfo.h"
 #import "LoginViewController.h"
+#import "NSString+Hash.h"
 
 @interface ChangePasswordController ()
 
@@ -105,7 +106,7 @@
     }
     NSDictionary *dict = @{
                            @"phone": self.phoneText.text,
-                           @"password": self.neText.text,
+                           @"password": [self.neText.text md5String],
                            @"random": self.codeText.text
                            };
     

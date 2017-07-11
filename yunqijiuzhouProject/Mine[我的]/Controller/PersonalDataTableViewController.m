@@ -81,7 +81,7 @@
             
             [self callActionSheetFunc];
             break;
-        case 4:
+        case 3:
             [self changePassword];
             break;
         default:
