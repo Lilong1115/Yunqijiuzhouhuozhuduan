@@ -9,6 +9,7 @@
 #ifndef NetPortWW_h
 #define NetPortWW_h
 
+//#define Base_URL @"http://192.168.100.202:8080/antu/"
 #define Base_URL @"http://www.yun9zhou.com/"
 
 //222.35.27.155:8888
@@ -19,6 +20,9 @@
 //47.93.46.18:8080
 
 //www.yun9zhou.com
+
+//时间
+#define Time_URL [NSString stringWithFormat:@"%@ReadFromFile.con/ReadUrl", Base_URL]
 
 
 //获取验证码
@@ -39,8 +43,11 @@
 #define OilType_URL [NSString stringWithFormat:@"%@RrgisterCon.con/gasoline", Base_URL]
 //@"http://192.168.100.136:8080/antu/XgoodsCon.con/hwlx"
 //登录
-#define Login_URL [NSString stringWithFormat:@"%@IOSlogin.con/login", Base_URL]
+#define Login_URL [NSString stringWithFormat:@"%@login.con/login", Base_URL]
 //@"http://192.168.100.136:8080/antu/login.con/login"
+
+//退出登录
+#define Quit_URL [NSString stringWithFormat:@"%@quit.con/quit", Base_URL]
 
 //修改照片
 #define SaveIcon_URL [NSString stringWithFormat:@"%@androidModInfo.con/modiInfo", Base_URL]

@@ -318,7 +318,7 @@
 - (void)loadExamplePage:(WKWebView*)webView urlStr:(NSString *)urlStr {
     
     //参数 uuid 用户id  pageSize
-    NSString *orderManagement = [NSString stringWithFormat:@"%@?uuid=%@&pageSize=0", urlStr, GetUuid];
+    NSString *orderManagement = [NSString stringWithFormat:@"%@?uuid=%@&pageSize=0&yhlx=%@", urlStr, GetUuid, [UserInfo account].yglx1];
     
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:orderManagement]]];
 }

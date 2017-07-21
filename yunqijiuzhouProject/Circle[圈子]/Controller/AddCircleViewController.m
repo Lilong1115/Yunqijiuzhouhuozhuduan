@@ -65,7 +65,10 @@
         
         if ([str isEqualToString:@"yes"]) {
             [LLGHUD showSuccessWithStatus:@"发布成功"];
-            [self.navigationController popViewControllerAnimated:YES];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.navigationController popViewControllerAnimated:YES];
+            });
+            
         } else {
             [LLGHUD showErrorWithStatus:@"发布失败"];
         }

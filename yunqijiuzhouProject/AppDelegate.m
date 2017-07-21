@@ -28,6 +28,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    
+    
     //设置提示框
     [SVProgressHUD setBackgroundColor:[UIColor grayColor]];
     [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
@@ -77,8 +79,24 @@
     
     [self.window makeKeyAndVisible];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(read:) name:@"read" object:nil];
+    
     return YES;
 }
+
+- (void)read:(NSNotification *)noti {
+
+    
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
+    label.text = @"您的app已到期限,请续费...";
+    label.backgroundColor = [UIColor whiteColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    [self.window addSubview:label];
+    
+    self.window.userInteractionEnabled = NO;
+    
+}
+
 
 //注册APNs成功并上报DeviceToken
 - (void)application:(UIApplication *)application
@@ -142,6 +160,31 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    [[XSJNetworkTool sharedNetworkTool] requestDataWithRequestType:GET andUrlString:Time_URL andParameters:nil andSuccessBlock:^(id result) {
+        
+        NSDictionary *dict = (NSDictionary *)result;
+        
+        NSLog(@"%@", dict);
+        
+        NSInteger ret = [dict[@"ret"] integerValue];
+        
+        if (ret == 1000) {
+            
+        } else {
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"read" object:dict[@"msg"]];
+                
+                
+            }];
+        }
+        
+        
+        
+    } andFailBlock:^(NSError *error) {
+        
+    }];
 }
 
 

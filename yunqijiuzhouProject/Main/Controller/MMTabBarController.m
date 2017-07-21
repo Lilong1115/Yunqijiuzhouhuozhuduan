@@ -102,7 +102,7 @@
 #pragma mark - 代理方法 MMBottomViewDelegate
 // MARK: - 6.实现协议方法,切换控制器!
 - (void)bottomView:(MMBottomView *)bottomView didSelectIndex:(NSUInteger)idx {
-
+    
     self.selectedIndex = idx;
     
     if ([UserInfo account] == nil) {
