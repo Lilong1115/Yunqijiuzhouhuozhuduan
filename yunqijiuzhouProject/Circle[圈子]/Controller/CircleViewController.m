@@ -158,7 +158,7 @@
         
         [self loadExamplePage:self.wkWebView urlStr:Circle_URL];
         
-        [self.wkWebView.scrollView.mj_header endRefreshing];
+//        [self.wkWebView.scrollView.mj_header endRefreshing];
     }];
     
     [WKWebViewJavascriptBridge enableLogging];
@@ -206,6 +206,8 @@
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:URL]]];
 }
 
+
+LoadWebViewHUD
 
 //- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
 //

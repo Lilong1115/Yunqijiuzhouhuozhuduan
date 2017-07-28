@@ -115,7 +115,7 @@
         }
         
         
-        [self.wkWebView.scrollView.mj_header endRefreshing];
+//        [self.wkWebView.scrollView.mj_header endRefreshing];
     }];
     
     // 注册一下
@@ -323,6 +323,8 @@
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:orderManagement]]];
 }
 
+
+LoadWebViewHUD
 
 /*
  方法名

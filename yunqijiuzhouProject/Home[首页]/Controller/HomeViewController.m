@@ -83,7 +83,7 @@
     self.wkWebView.scrollView.delegate = self;
     self.wkWebView.scrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self loadExamplePage:self.wkWebView];
-        [self.wkWebView.scrollView.mj_header endRefreshing];
+//        [self.wkWebView.scrollView.mj_header endRefreshing];
     }];
     
     //我要发货
@@ -167,6 +167,8 @@
     //@"http://192.168.100.169:8080/antu/MovewebhomeCon.con/index"
     
 }
+
+LoadWebViewHUD
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
 

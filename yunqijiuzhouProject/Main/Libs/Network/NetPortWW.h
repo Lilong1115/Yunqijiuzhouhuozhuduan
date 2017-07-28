@@ -9,8 +9,8 @@
 #ifndef NetPortWW_h
 #define NetPortWW_h
 
-//#define Base_URL @"http://192.168.100.202:8080/antu/"
-#define Base_URL @"http://www.yun9zhou.com/"
+#define Base_URL @"http://192.168.100.202:8080/antu/"
+//#define Base_URL @"http://www.yun9zhou.com/"
 
 //222.35.27.155:8888
 //192.168.100.141:8080

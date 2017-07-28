@@ -71,4 +71,24 @@
 
 #define ServicePhone @"0411-39276399"
 
+
+
+
+
+
+//加载视图
+#define LoadWebViewHUD \
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {\
+[webView.scrollView.mj_header beginRefreshing];\
+dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{\
+if (webView.scrollView.mj_header.isRefreshing) {\
+[LLGHUD showErrorWithStatus:@"网络请求失败"];\
+[webView.scrollView.mj_header endRefreshing];\
+}\
+});\
+}\
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {\
+[webView.scrollView.mj_header endRefreshing];\
+}
+
 #endif /* PrefixHeader_pch */

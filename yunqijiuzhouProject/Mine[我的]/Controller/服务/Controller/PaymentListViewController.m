@@ -61,7 +61,7 @@
     
     self.wkWebView.scrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self loadExamplePage:self.wkWebView];
-        [self.wkWebView.scrollView.mj_header endRefreshing];
+//        [self.wkWebView.scrollView.mj_header endRefreshing];
     }];
     
     //点击
@@ -83,5 +83,7 @@
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?uuid=%@", PaymentList_URL, GetUuid]]]];
     
 }
+
+LoadWebViewHUD
 
 @end
